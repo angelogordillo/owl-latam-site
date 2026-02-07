@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OWL LATAM | Evento de Networking</title>
+  <meta name="description" content="Evento privado de networking para profesionales de cadena de suministro." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --owl-navy: #212c5f;
+      --owl-text: #1f2435;
+      --owl-muted: #687086;
+      --owl-line: #e1e5f0;
+      --owl-surface: #f0f2f7;
+      --owl-white: #ffffff;
+      --owl-cyan: #21b4cf;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: var(--owl-text);
+      background: #f7f9fd;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2.2rem 0 3rem;
+    }
+
+    .eyebrow {
+      color: var(--owl-cyan);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 0.8rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 3.6vw, 3.2rem);
+      line-height: 1.15;
+      color: var(--owl-navy);
+      max-width: 14ch;
+    }
+
+    .intro {
+      margin-top: 1rem;
+      max-width: 62ch;
+      line-height: 1.65;
+      font-size: 1.02rem;
+    }
+
+    .layout {
+      margin-top: 1.7rem;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--owl-white);
+      border: 1px solid var(--owl-line);
+      border-radius: 18px;
+      padding: 1.15rem;
+    }
+
+    .card h2 {
+      margin: 0 0 0.7rem;
+      font-size: 1.24rem;
+      color: var(--owl-navy);
+    }
+
+    .item {
+      padding: 0.72rem 0;
+      border-top: 1px solid var(--owl-line);
+    }
+
+    .item:first-of-type { border-top: 0; }
+
+    .label {
+      font-size: 0.78rem;
+      color: var(--owl-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+
+    .value {
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    .speaker {
+      display: grid;
+      gap: 0.9rem;
+      align-content: start;
+    }
+
+    .speaker-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1px solid var(--owl-line);
+      background: var(--owl-surface);
+    }
+
+    .pill {
+      display: inline-block;
+      background: #eafcff;
+      border: 1px solid #c5f4fb;
+      color: #0a6b7b;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      padding: 0.28rem 0.62rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="eyebrow">OWL LATAM | Calendario</div>
+    <h1>Networking para profesionales de la cadena de suministro</h1>
+    <p class="intro">
+      Sesion privada de networking con enfoque en operaciones, abastecimiento y resultados reales en empresas de consumo masivo.
+    </p>
+
+    <section class="layout">
+      <article class="card">
+        <h2>Informacion del evento</h2>
+
+        <div class="item">
+          <div class="label">Lugar</div>
+          <p class="value">CARE COWORKING</p>
+        </div>
+
+        <div class="item">
+          <div class="label">Direccion</div>
+          <p class="value">Av. Ejercito Nacional Mexicano 1112, Polanco, Polanco I Secc, Miguel Hidalgo, 11510 Ciudad de Mexico, CDMX</p>
+        </div>
+
+        <div class="item">
+          <div class="label">Ponencia destacada</div>
+          <p class="value">Lorenzo Gimeno, Gerente de Operaciones de Wild Foods Mexico.</p>
+        </div>
+
+        <div class="item">
+          <div class="label">Tema</div>
+          <p class="value">
+            Experiencia en cadena de suministro en empresas de consumo masivo en Chile y Mexico, y beneficios concretos que esta consiguiendo con OWL para fortalecer su operacion en ambos paises.
+          </p>
+        </div>
+      </article>
+
+      <aside class="card speaker">
+        <span class="pill">Speaker</span>
+        <img class="speaker-photo" src="/static/Lorenzo.jpeg" alt="Lorenzo Gimeno" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div style="display:none; border:1px solid var(--owl-line); background:var(--owl-surface); border-radius:14px; padding:1rem; color:var(--owl-muted);">
+          Foto de Lorenzo Gimeno
+        </div>
+        <div>
+          <h2 style="margin-bottom:0.35rem;">Lorenzo Gimeno</h2>
+          <p class="value" style="margin:0;">Gerente de Operaciones<br />Wild Foods Mexico</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

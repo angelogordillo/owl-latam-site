@@ -86,6 +86,11 @@ def owl_home():
     owl_path = Path(__file__).parent / "owl-latam.html"
     return FileResponse(owl_path)
 
+@app.get("/calendario")
+def calendario():
+    calendario_path = Path(__file__).parent / "calendario.html"
+    return FileResponse(calendario_path)
+
 
 @app.get("/health")
 def health():

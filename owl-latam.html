@@ -243,6 +243,45 @@
       color: var(--owl-muted);
     }
 
+    .events {
+      background: #ffffff;
+      border: 1px solid var(--owl-line);
+      border-radius: 24px;
+      padding: 1.25rem;
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .events-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .events p {
+      margin: 0;
+      color: var(--owl-muted);
+      line-height: 1.6;
+      font-size: 0.96rem;
+    }
+
+    .event-item {
+      background: #f7f9fd;
+      border: 1px solid var(--owl-line);
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+    }
+
+    .event-meta {
+      display: grid;
+      gap: 0.35rem;
+      margin-top: 0.55rem;
+      font-size: 0.94rem;
+      color: var(--owl-text);
+    }
+
     .footer {
       border-top: 1px solid var(--owl-line);
       margin-top: 1.2rem;
@@ -363,6 +402,24 @@
           <p>Contáctanos al correo:</p>
         </div>
         <a class="btn btn-primary" href="mailto:angelo@theowl.solutions">angelo@theowl.solutions</a>
+      </div>
+    </section>
+
+    <section class="section" id="eventos">
+      <div class="events">
+        <div class="events-header">
+          <h2>Próximos eventos</h2>
+          <a class="btn btn-primary" href="/calendario">Calendario</a>
+        </div>
+        <p>Conoce las actividades privadas de OWL LATAM para líderes y profesionales de cadena de suministro.</p>
+        <article class="event-item">
+          <strong>Networking para profesionales de la cadena de suministro</strong>
+          <div class="event-meta">
+            <span>Viernes 27 de febrero | 15:00 hrs</span>
+            <span>CARE COWORKING, Polanco, Ciudad de México</span>
+            <span>Ponente: Lorenzo Gimeno, Gerente de Operaciones de Wild Foods México</span>
+          </div>
+        </article>
       </div>
     </section>
   </main>

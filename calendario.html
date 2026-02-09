@@ -260,8 +260,8 @@
         Sesión privada de networking con enfoque en operaciones, abastecimiento y resultados reales en empresas de consumo masivo.
       </p>
       <div class="actions no-print">
-        <button class="btn btn-print" type="button" onclick="window.print()">Descargar invitación PDF</button>
-        <p class="print-tip">Tip: en el cuadro de impresión, desactiva “Encabezados y pies de página”.</p>
+        <button class="btn btn-print" id="shareInviteBtn" type="button">Compartir invitación</button>
+        <p class="print-tip">Genera un JPG optimizado para WhatsApp, correo y redes sociales.</p>
       </div>
 
       <section class="layout">
@@ -322,5 +322,68 @@
       </section>
     </section>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    (function () {
+      const btn = document.getElementById("shareInviteBtn");
+      const invite = document.querySelector(".invite-sheet");
+      if (!btn || !invite) return;
+
+      function canvasToBlob(canvas, quality) {
+        return new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", quality));
+      }
+
+      btn.addEventListener("click", async function () {
+        const original = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = "Generando...";
+
+        try {
+          const canvas = await html2canvas(invite, {
+            backgroundColor: "#ffffff",
+            scale: 2,
+            useCORS: true,
+          });
+
+          const maxWidth = 1600;
+          const ratio = Math.min(1, maxWidth / canvas.width);
+          const output = document.createElement("canvas");
+          output.width = Math.round(canvas.width * ratio);
+          output.height = Math.round(canvas.height * ratio);
+          const ctx = output.getContext("2d");
+          ctx.drawImage(canvas, 0, 0, output.width, output.height);
+
+          const blob = await canvasToBlob(output, 0.86);
+          if (!blob) throw new Error("No se pudo generar la imagen.");
+
+          const file = new File([blob], "invitacion-owl-networking.jpg", { type: "image/jpeg" });
+
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            await navigator.share({
+              files: [file],
+              title: "Invitación | Networking OWL LATAM",
+              text: "Invitación al evento de networking de OWL LATAM",
+            });
+            return;
+          }
+
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "invitacion-owl-networking.jpg";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        } catch (error) {
+          console.error(error);
+          alert("No fue posible generar la invitación. Intenta nuevamente.");
+        } finally {
+          btn.disabled = false;
+          btn.textContent = original;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -26,13 +26,21 @@
       margin: 0;
       font-family: "Poppins", sans-serif;
       color: var(--owl-text);
-      background: #f7f9fd;
+      background: radial-gradient(circle at 85% 20%, #eaf8ff, #f7f9fd 45%);
     }
 
     .wrap {
       width: min(var(--max), calc(100% - 2rem));
       margin: 0 auto;
       padding: 2.2rem 0 3rem;
+    }
+
+    .invite-sheet {
+      background: var(--owl-white);
+      border: 1px solid var(--owl-line);
+      border-radius: 22px;
+      padding: 1.5rem;
+      box-shadow: 0 20px 44px rgba(18, 34, 77, 0.12);
     }
 
     .eyebrow {
@@ -61,6 +69,10 @@
 
     .actions {
       margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem 0.9rem;
     }
 
     .btn {
@@ -87,6 +99,12 @@
     .btn:hover {
       transform: translateY(-1px);
       box-shadow: 0 10px 18px rgba(33, 180, 207, 0.28);
+    }
+
+    .print-tip {
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--owl-muted);
     }
 
     .layout {
@@ -173,7 +191,7 @@
 
     .speaker-photo {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 5;
       border-radius: 14px;
       object-fit: cover;
       border: 1px solid var(--owl-line);
@@ -196,12 +214,13 @@
       .layout { grid-template-columns: 1fr; }
     }
 
-    @page {
-      size: A4;
-      margin: 14mm;
-    }
+    @page { size: A4; margin: 0; }
 
     @media print {
+      html, body {
+        width: 210mm;
+        height: 297mm;
+      }
       body {
         background: #ffffff;
       }
@@ -209,9 +228,16 @@
         display: none !important;
       }
       .wrap {
-        width: 100%;
+        width: 210mm;
+        min-height: 297mm;
         max-width: none;
         margin: 0;
+        padding: 10mm;
+      }
+      .invite-sheet {
+        border-radius: 0;
+        border: 0;
+        box-shadow: none;
         padding: 0;
       }
       .layout {
@@ -227,17 +253,19 @@
 </head>
 <body>
   <main class="wrap">
-    <div class="eyebrow">OWL LATAM | Calendario</div>
-    <h1>Networking para profesionales de la cadena de suministro</h1>
-    <p class="intro">
-      Sesión privada de networking con enfoque en operaciones, abastecimiento y resultados reales en empresas de consumo masivo.
-    </p>
-    <div class="actions no-print">
-      <button class="btn btn-print" type="button" onclick="window.print()">Descargar invitación PDF</button>
-    </div>
+    <section class="invite-sheet">
+      <div class="eyebrow">OWL LATAM | Calendario</div>
+      <h1>Networking para profesionales de la cadena de suministro</h1>
+      <p class="intro">
+        Sesión privada de networking con enfoque en operaciones, abastecimiento y resultados reales en empresas de consumo masivo.
+      </p>
+      <div class="actions no-print">
+        <button class="btn btn-print" type="button" onclick="window.print()">Descargar invitación PDF</button>
+        <p class="print-tip">Tip: en el cuadro de impresión, desactiva “Encabezados y pies de página”.</p>
+      </div>
 
-    <section class="layout">
-      <article class="card">
+      <section class="layout">
+        <article class="card">
         <h2>Informacion del evento</h2>
 
         <div class="item item-logos" aria-hidden="true">
@@ -278,9 +306,9 @@
           <p class="value">Viernes 27 de febrero, 15:00 hrs.</p>
           <p class="value">Inscripciones: <a href="mailto:angelo@theowl.solutions">angelo@theowl.solutions</a></p>
         </div>
-      </article>
+        </article>
 
-      <aside class="card speaker">
+        <aside class="card speaker">
         <span class="pill">Speaker</span>
         <img class="speaker-photo" src="/static/Lorenzo.jpeg" alt="Lorenzo Gimeno" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <div style="display:none; border:1px solid var(--owl-line); background:var(--owl-surface); border-radius:14px; padding:1rem; color:var(--owl-muted);">
@@ -290,7 +318,8 @@
           <h2 style="margin-bottom:0.35rem;">Lorenzo Gimeno</h2>
           <p class="value" style="margin:0;">Gerente de Operaciones<br />Wild Foods Mexico</p>
         </div>
-      </aside>
+        </aside>
+      </section>
     </section>
   </main>
 </body>

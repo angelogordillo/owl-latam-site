@@ -366,6 +366,16 @@
         return { y: cursorY, lines };
       }
 
+      function drawLabelValue(ctx, label, value, x, y, width) {
+        ctx.fillStyle = "#6b7390";
+        ctx.font = "700 18px Poppins, sans-serif";
+        ctx.fillText(label.toUpperCase(), x, y);
+        ctx.fillStyle = "#2c334a";
+        ctx.font = "500 22px Poppins, sans-serif";
+        const out = drawMultiline(ctx, value, x, y + 34, width, 30);
+        return out.y + 30;
+      }
+
       btn.addEventListener("click", async function () {
         const original = btn.textContent;
         btn.disabled = true;
@@ -400,68 +410,68 @@
 
           const leftX = 66;
           const leftW = 640;
-          const sideX = 738;
-          const sideW = 274;
+          const sideX = 742;
+          const sideW = 270;
 
-          ctx.drawImage(owlLogo, leftX, 66, 72, 72);
-          ctx.drawImage(camaraLogo, sideX + 82, 66, 184, 72);
+          ctx.drawImage(owlLogo, leftX, 66, 66, 66);
+          ctx.drawImage(camaraLogo, sideX + 76, 66, 178, 66);
 
           ctx.fillStyle = "#21b4cf";
-          ctx.font = "700 27px Poppins, sans-serif";
-          ctx.fillText("OWL LATAM | INVITACION", leftX + 96, 108);
+          ctx.font = "700 26px Poppins, sans-serif";
+          ctx.fillText("OWL LATAM | INVITACION", leftX + 88, 106);
 
-          ctx.fillStyle = "#212c5f";
-          ctx.font = "800 66px Poppins, sans-serif";
+          ctx.fillStyle = "#1f2b68";
+          ctx.font = "800 72px Poppins, sans-serif";
           const title = drawMultiline(
             ctx,
             "Networking para profesionales de la cadena de suministro",
             leftX,
-            206,
+            200,
             leftW,
-            76
+            78
           );
-          const titleEnd = title.y + 10;
+          const titleEnd = title.y;
 
-          ctx.fillStyle = "#3f4860";
-          ctx.font = "500 30px Poppins, sans-serif";
+          ctx.fillStyle = "#424b64";
+          ctx.font = "500 24px Poppins, sans-serif";
           const subtitle = drawMultiline(
             ctx,
             "Sesion privada de networking con enfoque en operaciones y resultados reales.",
             leftX,
-            titleEnd + 54,
-            leftW + 18,
-            42
+            titleEnd + 58,
+            leftW + 6,
+            36
           );
           const subtitleEnd = subtitle.y;
 
-          const infoTop = Math.max(660, subtitleEnd + 56);
-          const infoH = 470;
+          const infoTop = Math.max(648, subtitleEnd + 56);
 
           ctx.fillStyle = "#ffffff";
           ctx.strokeStyle = "#d6e0f4";
           ctx.lineWidth = 1.5;
           ctx.beginPath();
-          ctx.roundRect(leftX, infoTop, leftW + 60, infoH, 18);
+          ctx.roundRect(leftX, infoTop, leftW + 56, 492, 18);
           ctx.fill();
           ctx.stroke();
 
-          ctx.fillStyle = "#212c5f";
-          ctx.font = "700 52px Poppins, sans-serif";
-          ctx.fillText("Informacion del evento", leftX + 26, infoTop + 74);
+          ctx.fillStyle = "#1f2b68";
+          ctx.font = "700 62px Poppins, sans-serif";
+          ctx.fillText("Informacion del evento", leftX + 24, infoTop + 78);
 
-          ctx.fillStyle = "#394056";
-          ctx.font = "500 30px Poppins, sans-serif";
           let curY = infoTop + 132;
-          curY = drawMultiline(ctx, "Viernes 27 de febrero | 15:00 hrs", leftX + 26, curY, leftW + 18, 38).y + 24;
-          curY = drawMultiline(ctx, "CARE COWORKING, Polanco, Ciudad de Mexico", leftX + 26, curY, leftW + 18, 38).y + 24;
-          curY = drawMultiline(ctx, "Ponente: Lorenzo Gimeno, Gerente de Operaciones de Wild Foods Mexico", leftX + 26, curY, leftW + 18, 38).y + 24;
+          curY = drawLabelValue(ctx, "Fecha y hora", "Viernes 27 de febrero | 15:00 hrs", leftX + 24, curY, leftW + 10);
+          curY = drawLabelValue(ctx, "Lugar", "CARE COWORKING, Polanco, Ciudad de Mexico", leftX + 24, curY, leftW + 10);
+          curY = drawLabelValue(ctx, "Ponente", "Lorenzo Gimeno, Gerente de Operaciones de Wild Foods Mexico", leftX + 24, curY, leftW + 10);
+
+          ctx.fillStyle = "#3a435e";
+          ctx.font = "500 22px Poppins, sans-serif";
           drawMultiline(
             ctx,
             "Evento realizado de manera conjunta entre OWL LATAM y la Camara Mexicano Chilena de Comercio e Inversion.",
-            leftX + 26,
-            curY,
-            leftW + 18,
-            38
+            leftX + 24,
+            curY + 8,
+            leftW + 10,
+            30
           );
 
           ctx.fillStyle = "#eafcff";
@@ -472,26 +482,27 @@
           ctx.fill();
           ctx.stroke();
           ctx.fillStyle = "#0a6b7b";
-          ctx.font = "700 30px Poppins, sans-serif";
-          ctx.fillText("Inscripciones: angelo@theowl.solutions", leftX + 22, 1242);
+          ctx.font = "700 31px Poppins, sans-serif";
+          ctx.fillText("Inscripciones: angelo@theowl.solutions", leftX + 20, 1242);
 
           ctx.fillStyle = "#ffffff";
           ctx.strokeStyle = "#d6e0f4";
           ctx.lineWidth = 1.5;
           ctx.beginPath();
-          ctx.roundRect(sideX, 196, sideW, 934, 18);
+          ctx.roundRect(sideX, 196, sideW, 944, 18);
           ctx.fill();
           ctx.stroke();
 
-          ctx.drawImage(speaker, sideX + 18, 222, 238, 322);
-          ctx.fillStyle = "#212c5f";
-          ctx.font = "700 44px Poppins, sans-serif";
-          const nameEnd = drawMultiline(ctx, "Lorenzo Gimeno", sideX + 18, 600, sideW - 32, 48).y;
+          ctx.drawImage(speaker, sideX + 16, 216, 238, 318);
 
-          ctx.fillStyle = "#4e5670";
-          ctx.font = "500 24px Poppins, sans-serif";
-          const roleEnd = drawMultiline(ctx, "Gerente de Operaciones", sideX + 18, nameEnd + 34, sideW - 32, 32).y;
-          drawMultiline(ctx, "Wild Foods Mexico", sideX + 18, roleEnd + 20, sideW - 32, 32);
+          ctx.fillStyle = "#1f2b68";
+          ctx.font = "700 55px Poppins, sans-serif";
+          const nameEnd = drawMultiline(ctx, "Lorenzo Gimeno", sideX + 16, 600, sideW - 32, 58).y;
+
+          ctx.fillStyle = "#4d556f";
+          ctx.font = "500 25px Poppins, sans-serif";
+          const roleEnd = drawMultiline(ctx, "Gerente de Operaciones", sideX + 16, nameEnd + 26, sideW - 32, 34).y;
+          drawMultiline(ctx, "Wild Foods Mexico", sideX + 16, roleEnd + 18, sideW - 32, 34);
 
           const blob = await canvasToBlob(canvas, 0.88);
           if (!blob) throw new Error("No se pudo generar la imagen.");

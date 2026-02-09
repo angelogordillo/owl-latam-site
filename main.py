@@ -84,12 +84,26 @@ def send_owl_lead_email(
 @app.get("/")
 def owl_home():
     owl_path = Path(__file__).parent / "owl-latam.html"
-    return FileResponse(owl_path)
+    return FileResponse(
+        owl_path,
+        headers={
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0",
+        },
+    )
 
 @app.get("/calendario")
 def calendario():
     calendario_path = Path(__file__).parent / "calendario.html"
-    return FileResponse(calendario_path)
+    return FileResponse(
+        calendario_path,
+        headers={
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0",
+        },
+    )
 
 
 @app.get("/health")

@@ -409,9 +409,10 @@
           ]);
 
           const leftX = 66;
-          const leftW = 640;
-          const sideX = 742;
           const sideW = 270;
+          const sideX = canvas.width - 66 - sideW;
+          const columnGap = 24;
+          const leftW = sideX - leftX - columnGap;
 
           ctx.drawImage(owlLogo, leftX, 66, 66, 66);
           ctx.drawImage(camaraLogo, sideX + 76, 66, 178, 66);
@@ -450,18 +451,26 @@
           ctx.strokeStyle = "#d6e0f4";
           ctx.lineWidth = 1.5;
           ctx.beginPath();
-          ctx.roundRect(leftX, infoTop, leftW + 56, 492, 18);
+          ctx.roundRect(leftX, infoTop, leftW, 492, 18);
           ctx.fill();
           ctx.stroke();
 
           ctx.fillStyle = "#1f2b68";
-          ctx.font = "700 62px Poppins, sans-serif";
-          ctx.fillText("Informacion del evento", leftX + 24, infoTop + 78);
+          ctx.font = "700 48px Poppins, sans-serif";
+          const infoTitleEnd = drawMultiline(
+            ctx,
+            "Informacion del evento",
+            leftX + 24,
+            infoTop + 66,
+            leftW - 48,
+            54
+          ).y;
 
           let curY = infoTop + 132;
-          curY = drawLabelValue(ctx, "Fecha y hora", "Viernes 27 de febrero | 15:00 hrs", leftX + 24, curY, leftW + 10);
-          curY = drawLabelValue(ctx, "Lugar", "CARE COWORKING, Polanco, Ciudad de Mexico", leftX + 24, curY, leftW + 10);
-          curY = drawLabelValue(ctx, "Ponente", "Lorenzo Gimeno, Gerente de Operaciones de Wild Foods Mexico", leftX + 24, curY, leftW + 10);
+          curY = Math.max(curY, infoTitleEnd + 28);
+          curY = drawLabelValue(ctx, "Fecha y hora", "Viernes 27 de febrero | 15:00 hrs", leftX + 24, curY, leftW - 48);
+          curY = drawLabelValue(ctx, "Lugar", "CARE COWORKING, Polanco, Ciudad de Mexico", leftX + 24, curY, leftW - 48);
+          curY = drawLabelValue(ctx, "Ponente", "Lorenzo Gimeno, Gerente de Operaciones de Wild Foods Mexico", leftX + 24, curY, leftW - 48);
 
           ctx.fillStyle = "#3a435e";
           ctx.font = "500 22px Poppins, sans-serif";
@@ -470,7 +479,7 @@
             "Evento realizado de manera conjunta entre OWL LATAM y la Camara Mexicano Chilena de Comercio e Inversion.",
             leftX + 24,
             curY + 8,
-            leftW + 10,
+            leftW - 48,
             30
           );
 
@@ -478,7 +487,7 @@
           ctx.strokeStyle = "#c5f4fb";
           ctx.lineWidth = 1.5;
           ctx.beginPath();
-          ctx.roundRect(leftX, 1180, 946, 92, 14);
+          ctx.roundRect(leftX, 1180, canvas.width - (leftX * 2), 92, 14);
           ctx.fill();
           ctx.stroke();
           ctx.fillStyle = "#0a6b7b";

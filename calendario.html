@@ -411,79 +411,79 @@
           const contentX = 84;
           const contentY = 84;
           const contentW = 912;
-          const columnGap = 34;
-          const photoW = 220;
-          const photoH = 286;
-          const photoX = contentX + contentW - photoW;
-          const textW = photoX - contentX - columnGap;
+          const rightColW = 258;
+          const gap = 30;
+          const rightColX = contentX + contentW - rightColW;
+          const leftW = rightColX - contentX - gap;
 
-          const owlW = 118;
-          const owlH = 92;
-          const camW = 240;
-          const camH = 92;
+          const owlW = 116;
+          const owlH = 88;
+          const camW = 210;
+          const camH = 88;
 
           ctx.drawImage(owlLogo, contentX, contentY, owlW, owlH);
           ctx.drawImage(camaraLogo, contentX + contentW - camW, contentY, camW, camH);
 
           ctx.fillStyle = "#21b4cf";
-          ctx.font = "700 48px Poppins, sans-serif";
-          ctx.fillText("OWL LATAM | INVITACION", contentX, 236);
-
-          ctx.fillStyle = "#1f2b68";
-          ctx.font = "800 66px Poppins, sans-serif";
-          const title = drawMultiline(
-            ctx,
-            "Networking para profesionales de la cadena de suministro",
-            contentX,
-            314,
-            textW,
-            74
-          );
-          const titleEnd = title.y;
+          ctx.font = "700 42px Poppins, sans-serif";
+          ctx.fillText("OWL LATAM | INVITACION", contentX, 228);
 
           ctx.fillStyle = "#ffffff";
           ctx.strokeStyle = "#d6e0f4";
           ctx.lineWidth = 1.5;
           ctx.beginPath();
-          ctx.roundRect(photoX - 12, 284, photoW + 24, 730, 18);
+          ctx.roundRect(rightColX - 10, 262, rightColW + 20, 488, 18);
           ctx.fill();
           ctx.stroke();
 
-          ctx.drawImage(speaker, photoX, 304, photoW, photoH);
+          const photoW = 220;
+          const photoH = 246;
+          const photoX = rightColX + (rightColW - photoW) / 2;
+          ctx.drawImage(speaker, photoX, 286, photoW, photoH);
+
+          ctx.fillStyle = "#1f2b68";
+          ctx.font = "800 68px Poppins, sans-serif";
+          const title = drawMultiline(
+            ctx,
+            "Networking para profesionales de la cadena de suministro",
+            contentX,
+            298,
+            leftW,
+            72
+          );
 
           ctx.fillStyle = "#424b64";
-          ctx.font = "500 48px Poppins, sans-serif";
+          ctx.font = "500 56px Poppins, sans-serif";
           const subtitle = drawMultiline(
             ctx,
             "Sesion privada de networking con enfoque en operaciones y resultados reales.",
             contentX,
-            titleEnd + 44,
-            textW,
-            58
+            title.y + 34,
+            leftW,
+            60
           );
-          const subtitleEnd = subtitle.y;
 
           ctx.fillStyle = "#21b4cf";
-          ctx.font = "700 48px Poppins, sans-serif";
-          ctx.fillText("SPEAKER", photoX, 664);
+          ctx.font = "700 42px Poppins, sans-serif";
+          ctx.fillText("SPEAKER", rightColX, 592);
 
           ctx.fillStyle = "#1f2b68";
-          ctx.font = "800 62px Poppins, sans-serif";
-          const speakerName = drawMultiline(ctx, "Lorenzo Gimeno", photoX, 736, photoW, 66);
+          ctx.font = "800 56px Poppins, sans-serif";
+          const speakerName = drawMultiline(ctx, "Lorenzo Gimeno", rightColX, 652, rightColW, 60);
 
           ctx.fillStyle = "#4d556f";
-          ctx.font = "500 40px Poppins, sans-serif";
-          const speakerRoleEnd = drawMultiline(
+          ctx.font = "500 22px Poppins, sans-serif";
+          drawMultiline(
             ctx,
             "Gerente de Operaciones Wild Foods Mexico",
-            photoX,
-            speakerName.y + 24,
-            photoW,
-            48
-          ).y;
+            rightColX,
+            speakerName.y + 20,
+            rightColW,
+            30
+          );
 
-          const infoTop = Math.max(subtitleEnd + 58, speakerRoleEnd + 36);
-          const infoH = 330;
+          const infoTop = Math.max(780, subtitle.y + 30);
+          const infoH = 372;
           ctx.fillStyle = "#ffffff";
           ctx.strokeStyle = "#d6e0f4";
           ctx.lineWidth = 1.5;
@@ -493,52 +493,52 @@
           ctx.stroke();
 
           ctx.fillStyle = "#1f2b68";
-          ctx.font = "700 58px Poppins, sans-serif";
+          ctx.font = "700 56px Poppins, sans-serif";
           ctx.fillText("Informacion del evento", contentX + 28, infoTop + 72);
 
           ctx.fillStyle = "#2c334a";
-          ctx.font = "600 40px Poppins, sans-serif";
+          ctx.font = "600 24px Poppins, sans-serif";
           ctx.fillText("Viernes 27 de febrero | 15:00 hrs", contentX + 28, infoTop + 132);
 
-          ctx.font = "500 34px Poppins, sans-serif";
+          ctx.font = "500 18px Poppins, sans-serif";
           const address = drawMultiline(
             ctx,
             "CARE COWORKING, Av. Ejercito Nacional Mexicano 1112, Polanco, Polanco I Secc, Miguel Hidalgo, 11510 Ciudad de Mexico, CDMX",
             contentX + 28,
-            infoTop + 184,
+            infoTop + 174,
             contentW - 56,
-            44
+            27
           );
 
           const speakerLine = drawMultiline(
             ctx,
             "Ponente: Lorenzo Gimeno, Gerente de Operaciones de Wild Foods Mexico.",
             contentX + 28,
-            address.y + 22,
+            address.y + 16,
             contentW - 56,
-            42
+            27
           );
 
           drawMultiline(
             ctx,
             "Evento realizado de manera conjunta entre OWL LATAM y la Camara Mexicano Chilena de Comercio e Inversion. Evento sin costo.",
             contentX + 28,
-            speakerLine.y + 20,
+            speakerLine.y + 14,
             contentW - 56,
-            40
+            27
           );
 
-          const footerY = infoTop + infoH + 28;
+          const footerY = infoTop + infoH + 24;
           ctx.fillStyle = "#eafcff";
           ctx.strokeStyle = "#c5f4fb";
           ctx.lineWidth = 1.5;
           ctx.beginPath();
-          ctx.roundRect(contentX, footerY, contentW, 88, 14);
+          ctx.roundRect(contentX, footerY, contentW, 84, 14);
           ctx.fill();
           ctx.stroke();
           ctx.fillStyle = "#0a6b7b";
-          ctx.font = "700 44px Poppins, sans-serif";
-          ctx.fillText("Inscripciones: angelo@theowl.solutions", contentX + 24, footerY + 57);
+          ctx.font = "700 22px Poppins, sans-serif";
+          ctx.fillText("Inscripciones: angelo@theowl.solutions", contentX + 24, footerY + 53);
 
           const blob = await canvasToBlob(canvas, 0.88);
           if (!blob) throw new Error("No se pudo generar la imagen.");

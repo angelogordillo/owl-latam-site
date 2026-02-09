@@ -86,6 +86,41 @@
 
     .item:first-of-type { border-top: 0; }
 
+    .item-logos {
+      position: relative;
+      min-height: 64px;
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .joint-logos {
+      position: absolute;
+      inset: 0 0 auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .joint-logos img {
+      display: block;
+      background: var(--owl-white);
+      border: 1px solid var(--owl-line);
+      border-radius: 8px;
+      padding: 0.2rem;
+      object-fit: contain;
+    }
+
+    .joint-logos .owl {
+      width: 58px;
+      height: 58px;
+    }
+
+    .joint-logos .camara {
+      width: 162px;
+      height: 58px;
+    }
+
     .label {
       font-size: 0.78rem;
       color: var(--owl-muted);
@@ -144,6 +179,13 @@
       <article class="card">
         <h2>Informacion del evento</h2>
 
+        <div class="item item-logos" aria-hidden="true">
+          <div class="joint-logos">
+            <img class="owl" src="/static/owl-logo.png" alt="" />
+            <img class="camara" src="/static/logo-camara.jpg" alt="" />
+          </div>
+        </div>
+
         <div class="item">
           <div class="label">Lugar</div>
           <p class="value">CARE COWORKING</p>
@@ -163,6 +205,9 @@
           <div class="label">Tema</div>
           <p class="value">
             Experiencia en cadena de suministro en empresas de consumo masivo en Chile y Mexico, y beneficios concretos que esta consiguiendo con OWL para fortalecer su operacion en ambos paises.
+          </p>
+          <p class="value" style="margin-top:0.55rem;">
+            Evento realizado de manera conjunta entre OWL LATAM y la Camara Mexicano Chilena de Comercio e Inversion.
           </p>
         </div>
 

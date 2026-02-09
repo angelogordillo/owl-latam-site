@@ -322,15 +322,41 @@
       </section>
     </section>
   </main>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script>
     (function () {
       const btn = document.getElementById("shareInviteBtn");
-      const invite = document.querySelector(".invite-sheet");
-      if (!btn || !invite) return;
+      if (!btn) return;
 
       function canvasToBlob(canvas, quality) {
         return new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", quality));
+      }
+
+      function loadImage(src) {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.onload = () => resolve(img);
+          img.onerror = reject;
+          img.src = src;
+        });
+      }
+
+      function drawMultiline(ctx, text, x, y, maxWidth, lineHeight) {
+        const words = text.split(" ");
+        let line = "";
+        let cursorY = y;
+        for (let i = 0; i < words.length; i += 1) {
+          const testLine = line + words[i] + " ";
+          const testWidth = ctx.measureText(testLine).width;
+          if (testWidth > maxWidth && i > 0) {
+            ctx.fillText(line.trim(), x, cursorY);
+            line = words[i] + " ";
+            cursorY += lineHeight;
+          } else {
+            line = testLine;
+          }
+        }
+        if (line) ctx.fillText(line.trim(), x, cursorY);
+        return cursorY;
       }
 
       btn.addEventListener("click", async function () {
@@ -339,32 +365,106 @@
         btn.textContent = "Generando...";
 
         try {
-          const canvas = await html2canvas(invite, {
-            backgroundColor: "#ffffff",
-            scale: 2,
-            useCORS: true,
-          });
+          const canvas = document.createElement("canvas");
+          canvas.width = 1200;
+          canvas.height = 1600;
+          const ctx = canvas.getContext("2d");
 
-          const maxWidth = 1600;
-          const ratio = Math.min(1, maxWidth / canvas.width);
-          const output = document.createElement("canvas");
-          output.width = Math.round(canvas.width * ratio);
-          output.height = Math.round(canvas.height * ratio);
-          const ctx = output.getContext("2d");
-          ctx.drawImage(canvas, 0, 0, output.width, output.height);
+          ctx.fillStyle = "#f7f9fd";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-          const blob = await canvasToBlob(output, 0.86);
+          ctx.fillStyle = "#ffffff";
+          ctx.strokeStyle = "#e1e5f0";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.roundRect(40, 40, 1120, 1520, 24);
+          ctx.fill();
+          ctx.stroke();
+
+          const [owlLogo, camaraLogo, speaker] = await Promise.all([
+            loadImage("/static/owl-logo.png"),
+            loadImage("/static/logo-camara.jpg"),
+            loadImage("/static/Lorenzo.jpeg"),
+          ]);
+
+          ctx.drawImage(owlLogo, 70, 70, 95, 95);
+          ctx.drawImage(camaraLogo, 920, 76, 210, 82);
+
+          ctx.fillStyle = "#21b4cf";
+          ctx.font = "700 26px Poppins, sans-serif";
+          ctx.fillText("OWL LATAM | INVITACION", 190, 112);
+
+          ctx.fillStyle = "#212c5f";
+          ctx.font = "800 66px Poppins, sans-serif";
+          drawMultiline(ctx, "Networking para profesionales de la cadena de suministro", 70, 220, 760, 86);
+
+          ctx.fillStyle = "#3f4860";
+          ctx.font = "500 34px Poppins, sans-serif";
+          drawMultiline(ctx, "Sesion privada de networking con enfoque en operaciones y resultados reales.", 70, 610, 760, 48);
+
+          ctx.fillStyle = "#ffffff";
+          ctx.strokeStyle = "#d6e0f4";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.roundRect(70, 730, 760, 450, 20);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#212c5f";
+          ctx.font = "700 40px Poppins, sans-serif";
+          ctx.fillText("Informacion del evento", 100, 795);
+
+          ctx.fillStyle = "#394056";
+          ctx.font = "500 32px Poppins, sans-serif";
+          drawMultiline(ctx, "Viernes 27 de febrero | 15:00 hrs", 100, 860, 700, 42);
+          drawMultiline(ctx, "CARE COWORKING, Polanco, Ciudad de Mexico", 100, 920, 700, 42);
+          drawMultiline(ctx, "Ponente: Lorenzo Gimeno, Gerente de Operaciones de Wild Foods Mexico", 100, 980, 700, 42);
+          drawMultiline(ctx, "Evento realizado de manera conjunta entre OWL LATAM y la Camara Mexicano Chilena de Comercio e Inversion.", 100, 1060, 700, 42);
+
+          ctx.fillStyle = "#eafcff";
+          ctx.strokeStyle = "#c5f4fb";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.roundRect(70, 1240, 1060, 90, 16);
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = "#0a6b7b";
+          ctx.font = "700 34px Poppins, sans-serif";
+          ctx.fillText("Inscripciones: angelo@theowl.solutions", 100, 1298);
+
+          ctx.fillStyle = "#ffffff";
+          ctx.strokeStyle = "#d6e0f4";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.roundRect(860, 220, 270, 960, 20);
+          ctx.fill();
+          ctx.stroke();
+          ctx.drawImage(speaker, 885, 255, 220, 290);
+          ctx.fillStyle = "#212c5f";
+          ctx.font = "700 33px Poppins, sans-serif";
+          drawMultiline(ctx, "Lorenzo Gimeno", 885, 595, 220, 40);
+          ctx.fillStyle = "#4e5670";
+          ctx.font = "500 26px Poppins, sans-serif";
+          drawMultiline(ctx, "Gerente de Operaciones", 885, 690, 220, 36);
+          drawMultiline(ctx, "Wild Foods Mexico", 885, 736, 220, 36);
+
+          const blob = await canvasToBlob(canvas, 0.88);
           if (!blob) throw new Error("No se pudo generar la imagen.");
 
-          const file = new File([blob], "invitacion-owl-networking.jpg", { type: "image/jpeg" });
-
-          if (navigator.canShare && navigator.canShare({ files: [file] })) {
-            await navigator.share({
-              files: [file],
-              title: "Invitación | Networking OWL LATAM",
-              text: "Invitación al evento de networking de OWL LATAM",
-            });
-            return;
+          if (window.File && navigator.canShare) {
+            try {
+              const file = new File([blob], "invitacion-owl-networking.jpg", { type: "image/jpeg" });
+              if (navigator.canShare({ files: [file] })) {
+                await navigator.share({
+                  files: [file],
+                  title: "Invitación | Networking OWL LATAM",
+                  text: "Invitación al evento de networking de OWL LATAM",
+                });
+                return;
+              }
+            } catch (shareErr) {
+              console.warn("Share fallback to download", shareErr);
+            }
           }
 
           const url = URL.createObjectURL(blob);

@@ -243,6 +243,49 @@
       color: var(--owl-muted);
     }
 
+    .contact-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(180px, 1fr));
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .contact-item {
+      background: #f7f9fd;
+      border: 1px solid var(--owl-line);
+      border-radius: 14px;
+      padding: 0.75rem 0.85rem;
+      min-height: 118px;
+    }
+
+    .contact-item h3 {
+      margin: 0 0 0.45rem;
+      font-size: 0.98rem;
+      color: var(--owl-navy);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .contact-item p {
+      margin: 0.2rem 0;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--owl-text);
+    }
+
+    .contact-item a {
+      color: var(--owl-navy);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid transparent;
+    }
+
+    .contact-item a:hover {
+      border-bottom-color: var(--owl-cyan);
+    }
+
     .events {
       background: #ffffff;
       border: 1px solid var(--owl-line);
@@ -343,11 +386,13 @@
       .grid { grid-template-columns: 1fr 1fr; }
       .process { grid-template-columns: 1fr 1fr; }
       .contact { padding: 1rem; flex-direction: column; align-items: flex-start; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 640px) {
       .grid,
       .process { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -429,9 +474,23 @@
       <div class="contact">
         <div>
           <h2>Escríbenos</h2>
-          <p>Contáctanos al correo:</p>
+          <p>Equipo regional por país y área:</p>
         </div>
-        <a class="btn btn-primary" href="mailto:angelo@theowl.solutions">angelo@theowl.solutions</a>
+        <div class="contact-grid">
+          <article class="contact-item">
+            <h3><span>🇨🇱</span><span>Chile</span></h3>
+            <p>Consultoría: <a href="mailto:ricardo@theowl.solutions">ricardo@theowl.solutions</a></p>
+            <p>Comercial: <a href="mailto:mpaz@theowl.solutions">mpaz@theowl.solutions</a></p>
+          </article>
+          <article class="contact-item">
+            <h3><span>🇵🇪</span><span>Perú</span></h3>
+            <p><a href="mailto:fernando@theowl.solutions">fernando@theowl.solutions</a></p>
+          </article>
+          <article class="contact-item">
+            <h3><span>🇲🇽</span><span>México</span></h3>
+            <p><a href="mailto:angelo@theowl.solutions">angelo@theowl.solutions</a></p>
+          </article>
+        </div>
       </div>
     </section>
 

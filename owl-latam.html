@@ -184,6 +184,10 @@
       height: auto;
     }
 
+    .hero-logo a {
+      display: block;
+    }
+
     .section {
       padding: 2.35rem 0;
     }
@@ -354,6 +358,11 @@
       pointer-events: none;
     }
 
+    .event-logos a {
+      pointer-events: auto;
+      display: inline-flex;
+    }
+
     .event-logos img {
       display: block;
       background: #ffffff;
@@ -434,7 +443,9 @@
 
       <aside class="hero-card" aria-label="Diferenciales OWL LATAM">
         <div class="hero-logo">
-          <img src="/static/owl-logo.png" alt="Logotipo OWL Supply Chain Unveiled" />
+          <a href="https://theowlsolutions.com" target="_blank" rel="noopener noreferrer" aria-label="Ir a la web de OWL en inglés">
+            <img src="/static/owl-logo.png" alt="Logotipo OWL Supply Chain Unveiled" />
+          </a>
         </div>
         <h3>Nuestro enfoque</h3>
         <ul>
@@ -525,7 +536,9 @@
         <p>Conoce las actividades privadas de OWL LATAM para líderes y profesionales de cadena de suministro.</p>
         <article class="event-item">
           <div class="event-logos" aria-hidden="true">
-            <img class="owl" src="/static/owl-logo.png" alt="" />
+            <a href="https://theowlsolutions.com" target="_blank" rel="noopener noreferrer" aria-label="Ir a la web de OWL en inglés">
+              <img class="owl" src="/static/owl-logo.png" alt="" />
+            </a>
             <img class="camara" src="/static/logo-camara.jpg" alt="" />
           </div>
           <strong>Networking para profesionales de la cadena de suministro</strong>

@@ -32,20 +32,15 @@
     .wrap {
       width: min(var(--max), calc(100% - 2.25rem));
       margin-inline: auto;
-      padding: 2.4rem 0;
+      padding: 2.4rem 0 3rem;
     }
 
     .hero {
       background: var(--owl-white);
       border: 1px solid var(--owl-line);
       border-radius: 20px;
-      padding: 1.25rem;
+      padding: 1.45rem;
       margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.85rem;
-      flex-wrap: wrap;
     }
 
     .hero h1 {
@@ -56,85 +51,135 @@
     }
 
     .hero p {
-      margin: 0.4rem 0 0;
+      margin: 0.55rem 0 0;
       color: var(--owl-muted);
       font-size: 0.96rem;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      padding: 0.72rem 1.05rem;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: transform 160ms ease, box-shadow 160ms ease;
-      border: 0;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--owl-cyan);
-      color: #ffffff;
-      box-shadow: 0 8px 16px rgba(33, 180, 207, 0.26);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 20px rgba(33, 180, 207, 0.34);
-    }
-
-    .frame-wrap {
+    .story {
       background: var(--owl-white);
       border: 1px solid var(--owl-line);
       border-radius: 20px;
-      overflow: hidden;
-      min-height: calc(100vh - 220px);
+      padding: 1.4rem;
     }
 
-    iframe {
-      border: 0;
-      width: 100%;
-      height: calc(100vh - 220px);
-      min-height: 680px;
-      display: block;
-      background: #ffffff;
+    .story h2 {
+      margin: 1.5rem 0 0.6rem;
+      color: var(--owl-navy);
+      font-size: clamp(1.15rem, 1.7vw, 1.6rem);
     }
 
-    .fallback {
-      padding: 1rem 1.2rem;
-      border-top: 1px solid var(--owl-line);
-      font-size: 0.92rem;
-      color: var(--owl-muted);
-      background: #fcfdff;
+    .story h2:first-child {
+      margin-top: 0;
+    }
+
+    .story p {
+      margin: 0.55rem 0;
+      line-height: 1.68;
+      font-size: 0.98rem;
+      color: var(--owl-deep);
+    }
+
+    .story ul {
+      margin: 0.35rem 0 0.9rem;
+      padding-left: 1.15rem;
+      color: var(--owl-deep);
+    }
+
+    .story li {
+      margin: 0.42rem 0;
+      line-height: 1.62;
+      font-size: 0.96rem;
+    }
+
+    .highlight {
+      background: #f4f8ff;
+      border: 1px solid #dbe6ff;
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+      margin-top: 1rem;
+    }
+
+    .highlight p {
+      margin: 0;
+      font-weight: 600;
+      color: #1e2855;
+    }
+
+    @media (max-width: 720px) {
+      .hero,
+      .story {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <main class="wrap">
     <section class="hero">
-      <div>
-        <h1>Casos de éxito OWL LATAM</h1>
-        <p>Contenido sincronizado desde la historia de éxito en Notion.</p>
-      </div>
-      <a class="btn btn-primary" href="https://theowlsolutions.notion.site/HISTORIA-DE-XITO-2eed4d031b2180f9921aff95b69535f5?pvs=143" target="_blank" rel="noopener noreferrer">
-        Abrir en Notion
-      </a>
+      <h1>Historia de éxito: Wild Foods</h1>
+      <p>Cómo Wild Foods fortaleció su proceso de S&amp;OP y liberó tiempo del equipo para generar valor.</p>
     </section>
 
-    <section class="frame-wrap">
-      <iframe
-        src="https://theowlsolutions.notion.site/HISTORIA-DE-XITO-2eed4d031b2180f9921aff95b69535f5?pvs=143"
-        title="Historia de éxito OWL LATAM"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-      <div class="fallback">
-        Si el contenido no carga dentro de esta página, usa el botón <b>Abrir en Notion</b>.
+    <article class="story">
+      <h2>Acerca de Wild Foods</h2>
+      <p>Wild Foods es una empresa chilena de bienes de consumo masivo especializada en alimentos saludables y altos en proteínas, como barras, granolas y suplementos.</p>
+      <p>Fundada con la misión de liderar la alimentación saludable en Latinoamérica, desarrolla productos nutritivos, transparentes y accesibles para el mercado masivo.</p>
+      <p>Con plantas de producción en Chile y México, Wild Foods ha experimentado un crecimiento acelerado y gestiona un amplio portafolio de productos a través de múltiples canales, incluyendo retail tradicional y e-commerce.</p>
+      <p>Sus marcas principales, Wild Protein, Wild Fit y Wild Soul, están presentes en miles de puntos de venta en ambos países.</p>
+      <p>La compañía ha cerrado importantes rondas de financiamiento, entre ellas una liderada por el fondo mexicano Glisco Partners, con participación de 30N Ventures, recaudando alrededor de USD 25 millones para consolidar su expansión en México y otros mercados.</p>
+      <p>La visión de Wild Foods es democratizar el acceso a alimentos saludables, promoviendo el bienestar y la nutrición de los consumidores.</p>
+
+      <h2>Contexto</h2>
+      <p>Para Wild Foods, contar con un proceso de Sales &amp; Operations Planning (S&amp;OP) eficaz es clave para alinear demanda, abastecimiento y operaciones con los objetivos de crecimiento y desempeño del negocio.</p>
+      <p>Bajo el liderazgo de Sebastián Olavarría, Sub-gerente de S&amp;OP, la organización identificó un desafío común: planners y analistas dedicaban demasiado tiempo a preparar y validar información, reduciendo el espacio para el análisis y la gestión de oportunidades de mejora.</p>
+      <p>El objetivo fue claro: pasar de producir información a gestionar decisiones.</p>
+
+      <h2>El desafío</h2>
+      <ul>
+        <li>Gran parte del tiempo se destinaba a consolidar datos, validar reportes y preparar información.</li>
+        <li>La identificación de oportunidades de eficiencia dependía en exceso del esfuerzo manual y la experiencia individual.</li>
+        <li>Las reuniones de S&amp;OP tendían a enfocarse más en explicar números que en discutir decisiones y escenarios.</li>
+      </ul>
+      <p>La meta era reducir el esfuerzo operativo y elevar la calidad de las decisiones.</p>
+
+      <h2>La estrategia</h2>
+      <ul>
+        <li><b>Información confiable, automática y recurrente:</b> eliminar reprocesos y asegurar una única fuente de información para la planificación.</li>
+        <li><b>Enfoque en brechas y oportunidades:</b> pasar de reportes descriptivos a análisis que destaquen riesgos, desviaciones y oportunidades con impacto económico.</li>
+        <li><b>Personas enfocadas en gestionar, no en producir información:</b> liberar tiempo del equipo para análisis, discusión de escenarios y toma de decisiones.</li>
+      </ul>
+      <p>Para apoyar esta evolución, Wild Foods estableció una alianza con The Owl Solutions, integrando capacidades de inteligencia de decisiones al proceso S&amp;OP.</p>
+
+      <h2>La alianza con The Owl Solutions</h2>
+      <p>Como parte del fortalecimiento de su S&amp;OP, Wild Foods buscó un partner que apoyara al equipo con inteligencia analítica, sin agregar complejidad operativa.</p>
+      <p>The Owl Solutions trabaja con equipos de supply chain para transformar datos en decisiones, permitiendo que planners y líderes se enfoquen en gestionar el desempeño del negocio. Su aplicación de software, ODA, se incorporó como soporte analítico del proceso S&amp;OP.</p>
+
+      <h2>Cómo ODA apoya el proceso S&amp;OP</h2>
+      <ul>
+        <li>Automatizar análisis recurrentes de demanda, inventarios y desempeño operativo.</li>
+        <li>Identificar oportunidades de eficiencia con impacto económico tangible.</li>
+        <li>Generar insights claros y accionables para las instancias de S&amp;OP.</li>
+        <li>Reducir el tiempo dedicado a preparación manual de información.</li>
+      </ul>
+      <p>Esto permitió que las reuniones de S&amp;OP se enfocaran en prioridades, escenarios y decisiones, y no en la explicación de datos.</p>
+
+      <h2>Resultados y beneficios</h2>
+      <ul>
+        <li>Se redujo significativamente el tiempo dedicado a tareas operativas de análisis.</li>
+        <li>Aumentó la visibilidad de oportunidades de eficiencia con impacto financiero.</li>
+        <li>Planners y analistas se enfocaron más en gestión y toma de decisiones.</li>
+        <li>Las conversaciones de S&amp;OP se volvieron más estratégicas y alineadas con el negocio.</li>
+      </ul>
+      <p>Más allá de la tecnología, el principal beneficio fue empoderar al equipo para usar mejor su tiempo y capacidades.</p>
+
+      <h2>Lo que viene</h2>
+      <p>El caso de Wild Foods demuestra que un S&amp;OP efectivo no se trata solo de cumplir con un calendario de reuniones, sino de crear un espacio estructurado para decisiones informadas que generen valor.</p>
+      <p>Con liderazgo claro, un proceso bien definido y el soporte analítico adecuado, el S&amp;OP puede transformarse en un verdadero motor de eficiencia, alineación y desempeño financiero.</p>
+      <div class="highlight">
+        <p>¿Te interesa conocer cómo otros equipos están evolucionando su proceso S&amp;OP con ODA? Respuesta rápida · Sin compromiso.</p>
       </div>
-    </section>
+    </article>
   </main>
 </body>
 </html>

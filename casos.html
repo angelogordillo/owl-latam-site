@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OWL LATAM | Casos</title>
+  <meta name="description" content="Historias y casos de éxito de OWL LATAM." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --owl-navy: #212c5f;
+      --owl-deep: #182041;
+      --owl-muted: #687086;
+      --owl-line: #e1e5f0;
+      --owl-cyan: #21b4cf;
+      --owl-white: #ffffff;
+      --max: 1320px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: var(--owl-deep);
+      background: #f7f9fd;
+      min-height: 100vh;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 2.25rem));
+      margin-inline: auto;
+      padding: 2.4rem 0;
+    }
+
+    .hero {
+      background: var(--owl-white);
+      border: 1px solid var(--owl-line);
+      border-radius: 20px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .hero h1 {
+      margin: 0;
+      color: var(--owl-navy);
+      font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+      line-height: 1.15;
+    }
+
+    .hero p {
+      margin: 0.4rem 0 0;
+      color: var(--owl-muted);
+      font-size: 0.96rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      padding: 0.72rem 1.05rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--owl-cyan);
+      color: #ffffff;
+      box-shadow: 0 8px 16px rgba(33, 180, 207, 0.26);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(33, 180, 207, 0.34);
+    }
+
+    .frame-wrap {
+      background: var(--owl-white);
+      border: 1px solid var(--owl-line);
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: calc(100vh - 220px);
+    }
+
+    iframe {
+      border: 0;
+      width: 100%;
+      height: calc(100vh - 220px);
+      min-height: 680px;
+      display: block;
+      background: #ffffff;
+    }
+
+    .fallback {
+      padding: 1rem 1.2rem;
+      border-top: 1px solid var(--owl-line);
+      font-size: 0.92rem;
+      color: var(--owl-muted);
+      background: #fcfdff;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Casos de éxito OWL LATAM</h1>
+        <p>Contenido sincronizado desde la historia de éxito en Notion.</p>
+      </div>
+      <a class="btn btn-primary" href="https://theowlsolutions.notion.site/HISTORIA-DE-XITO-2eed4d031b2180f9921aff95b69535f5?pvs=143" target="_blank" rel="noopener noreferrer">
+        Abrir en Notion
+      </a>
+    </section>
+
+    <section class="frame-wrap">
+      <iframe
+        src="https://theowlsolutions.notion.site/HISTORIA-DE-XITO-2eed4d031b2180f9921aff95b69535f5?pvs=143"
+        title="Historia de éxito OWL LATAM"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+      <div class="fallback">
+        Si el contenido no carga dentro de esta página, usa el botón <b>Abrir en Notion</b>.
+      </div>
+    </section>
+  </main>
+</body>
+</html>

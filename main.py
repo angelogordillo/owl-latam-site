@@ -105,6 +105,18 @@ def calendario():
         },
     )
 
+@app.get("/casos")
+def casos():
+    casos_path = Path(__file__).parent / "casos.html"
+    return FileResponse(
+        casos_path,
+        headers={
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0",
+        },
+    )
+
 
 @app.get("/health")
 def health():

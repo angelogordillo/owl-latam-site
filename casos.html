@@ -106,10 +106,63 @@
       color: #1e2855;
     }
 
+    .regional-contact {
+      margin-top: 1rem;
+      background: #ffffff;
+      border: 1px solid var(--owl-line);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+
+    .regional-contact h3 {
+      margin: 0 0 0.75rem;
+      color: var(--owl-navy);
+      font-size: 1rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .contact-card {
+      background: #f7f9fd;
+      border: 1px solid var(--owl-line);
+      border-radius: 12px;
+      padding: 0.75rem;
+    }
+
+    .contact-card b {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--owl-navy);
+      font-size: 0.96rem;
+    }
+
+    .contact-card p {
+      margin: 0.2rem 0;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .contact-card a {
+      color: var(--owl-deep);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 720px) {
       .hero,
       .story {
         padding: 1rem;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -177,7 +230,25 @@
       <p>El caso de Wild Foods demuestra que un S&amp;OP efectivo no se trata solo de cumplir con un calendario de reuniones, sino de crear un espacio estructurado para decisiones informadas que generen valor.</p>
       <p>Con liderazgo claro, un proceso bien definido y el soporte analítico adecuado, el S&amp;OP puede transformarse en un verdadero motor de eficiencia, alineación y desempeño financiero.</p>
       <div class="highlight">
-        <p>¿Te interesa conocer cómo otros equipos están evolucionando su proceso S&amp;OP con ODA? Respuesta rápida · Sin compromiso.</p>
+        <p>¿Te interesa conocer cómo otros equipos están evolucionando su proceso S&amp;OP con ODA? ¡Hablemos!</p>
+      </div>
+      <div class="regional-contact">
+        <h3>Contacto regional</h3>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <b>🇨🇱 Chile</b>
+            <p>Consultoría: <a href="mailto:ricardo@theowl.solutions">ricardo@theowl.solutions</a></p>
+            <p>Comercial: <a href="mailto:mpaz@theowl.solutions">mpaz@theowl.solutions</a></p>
+          </article>
+          <article class="contact-card">
+            <b>🇵🇪 Perú</b>
+            <p><a href="mailto:fernando@theowl.solutions">fernando@theowl.solutions</a></p>
+          </article>
+          <article class="contact-card">
+            <b>🇲🇽 México</b>
+            <p><a href="mailto:angelo@theowl.solutions">angelo@theowl.solutions</a></p>
+          </article>
+        </div>
       </div>
     </article>
   </main>

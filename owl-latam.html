@@ -231,81 +231,19 @@
       gap: 1rem;
     }
 
-    .success-case {
-      background: linear-gradient(160deg, #ffe24a 0%, #ffd82e 100%);
-      border: 1px solid #f2cf23;
-      border-radius: 24px;
-      padding: 1.6rem;
-      box-shadow: 0 14px 26px rgba(90, 79, 12, 0.12);
-    }
-
-    .success-quote {
-      margin: 0;
-      font-size: clamp(1.55rem, 2.2vw, 2.35rem);
-      color: var(--owl-navy);
-      line-height: 1.3;
-      font-weight: 700;
-      max-width: 30ch;
-    }
-
-    .success-copy {
-      margin: 1rem 0 0;
-      max-width: 68ch;
-      color: #1c2443;
-      font-size: 1.03rem;
-      line-height: 1.65;
-    }
-
-    .success-signature {
-      margin-top: 1.25rem;
-      display: grid;
-      grid-template-columns: 132px 1fr;
-      gap: 1rem;
-      align-items: center;
+    .success-image-only {
       background: #ffffff;
-      border: 1px solid rgba(33, 44, 95, 0.16);
-      border-radius: 18px;
-      padding: 0.8rem;
-      max-width: 560px;
-    }
-
-    .success-photo {
-      width: 132px;
-      height: 132px;
-      border-radius: 14px;
-      border: 1px solid #dfe5f2;
+      border: 1px solid var(--owl-line);
+      border-radius: 20px;
       overflow: hidden;
-      background: #f3f6ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #6c7390;
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-align: center;
-      padding: 0.35rem;
+      box-shadow: 0 8px 24px rgba(19, 29, 63, 0.08);
+      max-width: 820px;
     }
 
-    .success-photo img {
+    .success-image-only img {
+      display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .success-who b {
-      display: block;
-      color: var(--owl-navy);
-      font-size: 1.45rem;
-      line-height: 1.1;
-    }
-
-    .success-who span {
-      display: block;
-      margin-top: 0.2rem;
-      color: #2d3554;
-      font-size: 0.95rem;
-      line-height: 1.4;
+      height: auto;
     }
 
     .step {
@@ -501,16 +439,12 @@
       .process { grid-template-columns: 1fr 1fr; }
       .contact { padding: 1rem; flex-direction: column; align-items: flex-start; }
       .contact-grid { grid-template-columns: 1fr 1fr; }
-      .success-signature { grid-template-columns: 110px 1fr; }
-      .success-photo { width: 110px; height: 110px; }
     }
 
     @media (max-width: 640px) {
       .grid,
       .process { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
-      .success-signature { grid-template-columns: 1fr; }
-      .success-photo { width: 100%; max-width: 180px; height: 180px; }
     }
   </style>
 </head>
@@ -595,25 +529,8 @@
 
     <section class="section" id="casos-exito">
       <h2>Casos de éxito</h2>
-      <article class="success-case">
-        <p class="success-quote">Mejor S&amp;OP. Mejores decisiones. Más valor para el negocio.</p>
-        <p class="success-copy">
-          “Con OWL hemos fortalecido nuestro S&amp;OP y liberado tiempo del equipo para enfocarnos en decisiones de mayor valor para el negocio. Más que una herramienta, OWL es un socio en nuestro camino de mejora continua.”
-        </p>
-        <div class="success-signature">
-          <div class="success-photo">
-            <img
-              src="/static/Wild%20foods%20testimonio.jpeg"
-              alt="Sebastian Olavarria"
-              onerror="this.style.display='none'; this.parentElement.textContent='Foto de Sebastian Olavarria';"
-            />
-          </div>
-          <div class="success-who">
-            <b>Sebastian Olavarria</b>
-            <span>Head of S&amp;OP</span>
-            <span>Wild Foods</span>
-          </div>
-        </div>
+      <article class="success-image-only">
+        <img src="/static/Wild%20foods%20testimonio.jpeg" alt="Caso de éxito Wild Foods" />
       </article>
     </section>
 

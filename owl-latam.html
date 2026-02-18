@@ -268,6 +268,26 @@
       font-size: 0.94rem;
     }
 
+    .fva-highlight {
+      display: grid;
+      grid-template-columns: 1.25fr auto;
+      gap: 1rem;
+      align-items: center;
+      background: linear-gradient(140deg, #e9faff, #ffffff);
+      border: 1px solid #d8edf2;
+      border-radius: 20px;
+      padding: 1.1rem;
+      box-shadow: 0 10px 26px rgba(33, 180, 207, 0.12);
+    }
+
+    .fva-highlight p {
+      margin: 0.55rem 0 0;
+      color: var(--owl-text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 72ch;
+    }
+
     .contact {
       background: #ffffff;
       border-radius: 24px;
@@ -441,6 +461,7 @@
       .hero { grid-template-columns: 1fr; padding-top: 3rem; }
       .grid { grid-template-columns: 1fr 1fr; }
       .process { grid-template-columns: 1fr 1fr; }
+      .fva-highlight { grid-template-columns: 1fr; }
       .contact { padding: 1rem; flex-direction: column; align-items: flex-start; }
       .contact-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -528,6 +549,16 @@
           <h3>Decisiones con datos</h3>
           <p>KPIs accionables y tableros para gestionar de forma preventiva y no reactiva.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section" id="fva">
+      <div class="fva-highlight">
+        <div>
+          <h2>Forecast Value Added (FVA)</h2>
+          <p>Consulta el resumen ejecutivo del documento FVA y conoce cómo OWL automatiza este proceso para mejorar la precisión del pronóstico con evidencia por etapa.</p>
+        </div>
+        <a class="btn btn-primary" href="/fva">Ver resumen FVA</a>
       </div>
     </section>
 

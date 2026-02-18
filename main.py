@@ -93,6 +93,18 @@ def owl_home():
         },
     )
 
+@app.get("/fva")
+def fva_page():
+    fva_path = Path(__file__).parent / "fva.html"
+    return FileResponse(
+        fva_path,
+        headers={
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0",
+        },
+    )
+
 @app.get("/calendario")
 def calendario():
     calendario_path = Path(__file__).parent / "calendario.html"

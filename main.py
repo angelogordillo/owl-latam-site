@@ -93,6 +93,12 @@ def owl_home():
         },
     )
 
+
+@app.head("/")
+def owl_home_head():
+    return FileResponse(Path(__file__).parent / "owl-latam.html")
+
+
 @app.get("/fva")
 def fva_page():
     fva_path = Path(__file__).parent / "fva.html"
@@ -105,6 +111,12 @@ def fva_page():
         },
     )
 
+
+@app.head("/fva")
+def fva_page_head():
+    return FileResponse(Path(__file__).parent / "fva.html")
+
+
 @app.get("/calendario")
 def calendario():
     calendario_path = Path(__file__).parent / "calendario.html"
@@ -116,6 +128,12 @@ def calendario():
             "Expires": "0",
         },
     )
+
+
+@app.head("/calendario")
+def calendario_head():
+    return FileResponse(Path(__file__).parent / "calendario.html")
+
 
 @app.get("/casos")
 def casos():
@@ -130,9 +148,19 @@ def casos():
     )
 
 
+@app.head("/casos")
+def casos_head():
+    return FileResponse(Path(__file__).parent / "casos.html")
+
+
 @app.get("/health")
 def health():
     return {"ok": True}
+
+
+@app.head("/health")
+def health_head():
+    return None
 
 
 @app.post("/api/owl-latam/lead")
